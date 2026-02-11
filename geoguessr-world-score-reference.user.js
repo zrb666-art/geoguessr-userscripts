@@ -56,7 +56,7 @@ function getScoreFromDistance(metres) {
 
 	
 	if(metres > perfectTolerance) {
-		points = Math.round(Math.pow((1 - metres/boundSize), 10) * 5000);
+		points = Math.round(5000 * Math.exp(-10 * metres/boundSize));
 	}
 
 	return points;
@@ -92,3 +92,4 @@ GeoGuessrEventFramework.init().then(GEF => {
 		SCORE = getScoreFromDistance(distance);
 	});
 });
+
